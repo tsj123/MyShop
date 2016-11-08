@@ -1,0 +1,15 @@
+private SliderLayout sliderLayout;
+
+TextSliderView textSliderView1 = new TextSliderView(this.getActivity());
+textSliderView1.description("丧失杀手潘森")
+        .image("http://img.kuai8.com/attaches/news/image/20151014/201510141342341258.png");
+TextSliderView textSliderView2 = new TextSliderView(this.getActivity());
+textSliderView2.description("小清新")
+        .image("http://www.pp3.cn/uploads/201501/2015011911.jpg");
+TextSliderView textSliderView3 = new TextSliderView(this.getActivity());
+textSliderView3.description("绿色")
+        .image("http://img4.imgtn.bdimg.com/it/u=3435017942,1062121422&fm=206&gp=0.jpg");
+
+sliderLayout.addSlider(textSliderView1);
+sliderLayout.addSlider(textSliderView2);
+sliderLayout.addSlider(textSliderView3);
