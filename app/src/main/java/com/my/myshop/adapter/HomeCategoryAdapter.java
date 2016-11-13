@@ -37,8 +37,12 @@ public class HomeCategoryAdapter extends RecyclerView.Adapter<HomeCategoryAdapte
         this.mContext = context;
     }
 
-    public void setOnCampaignClickListener(OnCampaignClickListener listener){
-        this.mListener = listener;
+    @Override
+    public int getItemViewType(int position) {
+        if(position%2 == 0)
+            return VIEW_TYPE2;
+        else
+            return VIEW_TYPE1;
     }
 
     @Override
@@ -67,14 +71,14 @@ public class HomeCategoryAdapter extends RecyclerView.Adapter<HomeCategoryAdapte
         return homeCampaigns.size();
     }
 
-    @Override
-    public int getItemViewType(int position) {
-        if(position%2 == 0)
-            return VIEW_TYPE2;
-        else
-            return VIEW_TYPE1;
+    public void setOnCampaignClickListener(OnCampaignClickListener listener){
+        this.mListener = listener;
     }
 
+    //HomeFragment调用此接口并重写onClick方法
+    public interface OnCampaignClickListener{
+        void onClick(View view, Campaign campaign);
+    }
 
     class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener{
         TextView textTitle;
@@ -127,11 +131,6 @@ public class HomeCategoryAdapter extends RecyclerView.Adapter<HomeCategoryAdapte
               });
               animator.start();
         }
-    }
-
-    //HomeFragment调用此接口并重写onClick方法
-    public interface OnCampaignClickListener{
-        void onClick(View view, Campaign campaign);
     }
 
 }

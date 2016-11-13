@@ -75,6 +75,6 @@ public abstract class BaseAdapter<T, H extends BaseViewHolder> extends RecyclerV
     }
 
     public interface OnItemClickListener{
-        void OnClick(View view, int position);
+        void onClick(View view, int position);
     }
 }

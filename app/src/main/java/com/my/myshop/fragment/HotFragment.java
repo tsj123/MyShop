@@ -14,7 +14,7 @@ import android.widget.Toast;
 import com.my.myshop.Constant;
 import com.my.myshop.R;
 import com.my.myshop.adapter.BaseAdapter;
-import com.my.myshop.adapter.HotWaresAdapter;
+import com.my.myshop.adapter.HotWaresAdapterSimple;
 import com.my.myshop.bean.Page;
 import com.my.myshop.bean.Ware;
 import com.my.myshop.http.OkHttpHelper;
@@ -30,7 +30,7 @@ public class HotFragment extends Fragment{
     private OkHttpHelper httpHelper = OkHttpHelper.getInstance();
     private int currPage = 2;
     private int pageSize = 10;
-    private HotWaresAdapter hotWaresAdapter;
+    private HotWaresAdapterSimple hotWaresAdapter;
     private RecyclerView recyclerView;
     private  List<Ware> wares;
 
@@ -62,12 +62,12 @@ public class HotFragment extends Fragment{
     }
 
     private void showData(){
-//        hotWaresAdapter = new HotWaresAdapterNotUsed(wares);
+//        hotWaresAdapter = new HotWaresAdapter(wares);
 //        recyclerView.setAdapter(hotWaresAdapter);
-        hotWaresAdapter = new HotWaresAdapter(getActivity(), wares);
+        hotWaresAdapter = new HotWaresAdapterSimple(getActivity(), wares);
         hotWaresAdapter.setOnItemClickListener(new BaseAdapter.OnItemClickListener() {
             @Override
-            public void OnClick(View view, int position) {
+            public void onClick(View view, int position) {
                 Toast.makeText(getActivity(), wares.get(position).getName(), Toast.LENGTH_SHORT).show();
             }
         });

@@ -12,21 +12,24 @@ import android.widget.Toast;
 
 import com.daimajia.slider.library.SliderLayout;
 import com.daimajia.slider.library.SliderTypes.TextSliderView;
-import com.google.gson.Gson;
 import com.my.myshop.Constant;
 import com.my.myshop.R;
+import com.my.myshop.adapter.BaseAdapter;
 import com.my.myshop.adapter.HomeCategoryAdapter;
+import com.my.myshop.adapter.HomeCategoryAdapterSimple;
 import com.my.myshop.bean.Banner;
 import com.my.myshop.bean.Campaign;
 import com.my.myshop.bean.HomeCampaign;
 import com.my.myshop.http.BaseCallback;
 import com.my.myshop.http.OkHttpHelper;
+import com.my.myshop.util.ToastUtil;
 import com.squareup.okhttp.Request;
 import com.squareup.okhttp.Response;
 
 import java.util.List;
 
 /**
+ * 主页
  * Created by MY on 2016/9/13.
  */
 public class HomeFragment extends Fragment {
@@ -49,7 +52,7 @@ public class HomeFragment extends Fragment {
     }
 
     /**
-     * 设置图片轮播
+     * 获取网络图片
      */
     private void requestImages(){
         String url = Constant.API.BANNER + "?type=1";
@@ -75,6 +78,9 @@ public class HomeFragment extends Fragment {
         });
     }
 
+    /**
+     *将获取到的图片填充到SliderLayout中
+     */
     public void initSlider(){
         sliderLayout.setPresetIndicator(SliderLayout.PresetIndicators.Center_Bottom);
         sliderLayout.setPresetTransformer(SliderLayout.Transformer.RotateUp);
@@ -89,6 +95,9 @@ public class HomeFragment extends Fragment {
         }
     }
 
+    /**
+     *
+     */
     private void initRecyclerView() {
         okHttpHelper.get(Constant.API.CAMPAIGN_HOME, new BaseCallback<List<HomeCampaign>>() {
             @Override
@@ -110,7 +119,7 @@ public class HomeFragment extends Fragment {
         });
     }
 
-    private void initData(List<HomeCampaign> homeCampaigns){
+    private void initData(final List<HomeCampaign> homeCampaigns){
         HomeCategoryAdapter adapter = new HomeCategoryAdapter(homeCampaigns, this.getActivity());
         adapter.setOnCampaignClickListener(new HomeCategoryAdapter.OnCampaignClickListener() {
             @Override
@@ -118,6 +127,15 @@ public class HomeFragment extends Fragment {
                 Toast.makeText(getActivity(), campaign.getTitle(), Toast.LENGTH_SHORT).show();
             }
         });
+
+//todo 封装HomeCategoryAdapterSimple
+//        HomeCategoryAdapterSimple adapter = new HomeCategoryAdapterSimple(this.getActivity(), homeCampaigns);
+//        adapter.setOnItemClickListener(new BaseAdapter.OnItemClickListener() {
+//            @Override
+//            public void onClick(View view, int position) {
+//                ToastUtil.show(getActivity(), homeCampaigns.get(position).getTitle());
+//            }
+//        });
         recyclerView.setAdapter(adapter);
         recyclerView.setLayoutManager(new LinearLayoutManager(this.getActivity()));
     }

@@ -7,8 +7,6 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.my.myshop.R;
-
 /**
  * Created by MY on 2016/9/16.
  */
@@ -26,15 +24,12 @@ public class BaseViewHolder extends RecyclerView.ViewHolder implements View.OnCl
     public View getView(int id){
         return findView(id);
     }
-
     public TextView getTextView(int id){
         return findView(id);
     }
-
     public ImageView getImageView(int id){
         return findView(id);
     }
-
     public Button getButton(int id){
         return findView(id);
     }
@@ -51,6 +46,6 @@ public class BaseViewHolder extends RecyclerView.ViewHolder implements View.OnCl
     @Override
     public void onClick(View v) {
         if(onItemClickListener != null)
-            onItemClickListener.OnClick(v, getLayoutPosition());
+            onItemClickListener.onClick(v, getLayoutPosition());
     }
 }
