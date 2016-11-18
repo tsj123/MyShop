@@ -1,10 +1,9 @@
 package com.my.myshop.bean;
 
 /**
- * Created by Ivan on 15/10/2.
- *图片轮播的bean
+ *横幅图片的广告模式
  */
-public class Banner extends BaseBean {
+public class HomeSlider extends BaseBean {
 
     private  String name;
     private  String imgUrl;

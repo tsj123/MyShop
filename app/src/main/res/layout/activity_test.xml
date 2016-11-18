@@ -7,13 +7,13 @@
     android:layout_height="match_parent"
     android:background="#fff">
 
-    <com.my.myshop.widget.CNiaoToolBar
+    <com.my.myshop.widget.MyToolBar
         android:id="@+id/cniao_toolbar"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:background="?attr/colorPrimary"
         android:minHeight="?attr/actionBarSize"
         app:isShowSearchView="true">
-    </com.my.myshop.widget.CNiaoToolBar>
+    </com.my.myshop.widget.MyToolBar>
 
 </LinearLayout>

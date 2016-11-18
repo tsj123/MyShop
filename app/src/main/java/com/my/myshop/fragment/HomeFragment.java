@@ -14,15 +14,12 @@ import com.daimajia.slider.library.SliderLayout;
 import com.daimajia.slider.library.SliderTypes.TextSliderView;
 import com.my.myshop.Constant;
 import com.my.myshop.R;
-import com.my.myshop.adapter.BaseAdapter;
 import com.my.myshop.adapter.HomeCategoryAdapter;
-import com.my.myshop.adapter.HomeCategoryAdapterSimple;
-import com.my.myshop.bean.Banner;
+import com.my.myshop.bean.HomeSlider;
 import com.my.myshop.bean.Campaign;
 import com.my.myshop.bean.HomeCampaign;
 import com.my.myshop.http.BaseCallback;
 import com.my.myshop.http.OkHttpHelper;
-import com.my.myshop.util.ToastUtil;
 import com.squareup.okhttp.Request;
 import com.squareup.okhttp.Response;
 
@@ -32,10 +29,10 @@ import java.util.List;
  * 主页
  * Created by MY on 2016/9/13.
  */
-public class HomeFragment extends Fragment {
+public class HomeFragment extends Fragment{
     private SliderLayout sliderLayout;
     private RecyclerView recyclerView;
-    private List<Banner> banners;
+    private List<HomeSlider> banners;
     private OkHttpHelper okHttpHelper = OkHttpHelper.getInstance();
 
     @Nullable
@@ -57,7 +54,7 @@ public class HomeFragment extends Fragment {
     private void requestImages(){
         String url = Constant.API.BANNER + "?type=1";
 
-        okHttpHelper.get(url, new BaseCallback<List<Banner>>() {
+        okHttpHelper.get(url, new BaseCallback<List<HomeSlider>>() {
             @Override
             public void onRequestBefore(Request request) {
             }
@@ -68,7 +65,7 @@ public class HomeFragment extends Fragment {
             public void onFailure(Request request, Exception e) {
             }
             @Override
-            public void onSuccess(Response response, List<Banner> banners) {
+            public void onSuccess(Response response, List<HomeSlider> banners) {
                 HomeFragment.this.banners = banners;
                 initSlider();
             }
@@ -86,7 +83,7 @@ public class HomeFragment extends Fragment {
         sliderLayout.setPresetTransformer(SliderLayout.Transformer.RotateUp);
 
         if (banners != null){
-            for (Banner banner : banners){
+            for (HomeSlider banner : banners){
                 TextSliderView textSliderView = new TextSliderView(getActivity());
                 textSliderView.image(banner.getImgUrl());
                 textSliderView.description(banner.getName());

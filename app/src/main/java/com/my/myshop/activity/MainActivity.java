@@ -14,7 +14,7 @@ import com.my.myshop.bean.Tab;
 import com.my.myshop.fragment.CartFragment;
 import com.my.myshop.fragment.CategoryFragment;
 import com.my.myshop.fragment.HomeFragment;
-import com.my.myshop.fragment.HotFragment;
+import com.my.myshop.fragment.HotWaresFragment;
 import com.my.myshop.fragment.MineFragment;
 import com.my.myshop.widget.FragmentTabHost;
 
@@ -31,13 +31,12 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
         initTab();
     }
 
     private void initTab() {
         Tab tab_home = new Tab(HomeFragment.class, R.string.home, R.drawable.selector_icon_home);
-        Tab tab_hot = new Tab(HotFragment.class, R.string.hot, R.drawable.selector_icon_hot);
+        Tab tab_hot = new Tab(HotWaresFragment.class, R.string.hot, R.drawable.selector_icon_hot);
         Tab tab_category = new Tab(CategoryFragment.class, R.string.category, R.drawable.selector_icon_category);
         Tab tab_cart = new Tab(CartFragment.class, R.string.cart, R.drawable.selector_icon_cart);
         Tab tab_mine = new Tab(MineFragment.class, R.string.mine, R.drawable.selector_icon_mine);

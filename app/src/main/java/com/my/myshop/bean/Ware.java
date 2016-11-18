@@ -3,8 +3,8 @@ package com.my.myshop.bean;
 import java.io.Serializable;
 
 /**
- * Created by <a href="http://www.cniao5.com">菜鸟窝</a>
- * 一个专业的Android开发在线教育平台
+ * 商品信息
+ * 在热卖和分类板块用到
  */
 public class Ware implements Serializable {
 

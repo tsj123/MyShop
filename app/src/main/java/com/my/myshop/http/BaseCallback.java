@@ -12,7 +12,7 @@ import java.lang.reflect.Type;
  * Created by MY on 2016/9/14.
  */
 public abstract class BaseCallback<T> {
-    Type type;
+    public Type type;
     public BaseCallback()
     {
         type = getSuperclassTypeParameter(getClass());

@@ -9,8 +9,7 @@ package com.my.myshop.bean;
 import java.io.Serializable;
 
 /**
- * Copyright(c)2014 Guangzhou Onion Information Technology Co., Ltd.
- * http://www.cniao5.com
+ *
  */
 public class HomeCampaign implements Serializable {
 

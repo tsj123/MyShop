@@ -5,20 +5,27 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
+    <com.my.myshop.widget.MyToolBar
+        android:id="@+id/toolbar"
+        android:background="?attr/colorPrimary"
+        android:minHeight="?attr/actionBarSize"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:isShowSearchView="true" />
+
     <com.daimajia.slider.library.SliderLayout
         android:id="@+id/slider"
         android:layout_width="match_parent"
+        android:layout_height="180dp"
         app:pager_animation="Accordion"
         app:auto_cycle="true"
         app:indicator_visibility="visible"
-        app:pager_animation_span="1100"
-        android:layout_height="180dp"/>
+        app:pager_animation_span="1100"/>
 
     <android.support.v7.widget.RecyclerView
         android:id="@+id/recycler_view"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="10dp">
-    </android.support.v7.widget.RecyclerView>
+        android:layout_marginTop="10dp"/>
 
 </LinearLayout>

@@ -6,6 +6,14 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
+    <com.my.myshop.widget.MyToolBar
+        android:id="@+id/toolbar"
+        android:background="?attr/colorPrimary"
+        android:minHeight="?attr/actionBarSize"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:title="热卖"/>
+
     <com.cjj.MaterialRefreshLayout
         android:id="@+id/refresh_view"
         android:layout_width="match_parent"

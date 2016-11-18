@@ -3,8 +3,7 @@ package com.my.myshop.bean;
 import java.util.List;
 
 /**
- * Created by <a href="http://www.cniao5.com">菜鸟窝</a>
- * 一个专业的Android开发在线教育平台
+ * 网络加载出的一页信息
  */
 public class Page<T> {
 

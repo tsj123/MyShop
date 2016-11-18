@@ -18,7 +18,7 @@ import android.widget.TextView;
 import com.my.myshop.R;
 
 
-public class CNiaoToolBar extends Toolbar {
+public class MyToolBar extends Toolbar {
 
     private LayoutInflater mInflater;
 
@@ -28,37 +28,37 @@ public class CNiaoToolBar extends Toolbar {
     private Button mRightButton;
 
 
-    public CNiaoToolBar(Context context) {
+    public MyToolBar(Context context) {
         this(context, null);
     }
 
-    public CNiaoToolBar(Context context, AttributeSet attrs) {
+    public MyToolBar(Context context, AttributeSet attrs) {
         this(context, attrs, 0);
     }
 
-    public CNiaoToolBar(Context context, AttributeSet attrs, int defStyleAttr) {
+    public MyToolBar(Context context, AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
 
         initView();
         setContentInsetsRelative(10, 10);
         if (attrs != null) {
             final TintTypedArray tintTypedArray = TintTypedArray.obtainStyledAttributes(getContext(), attrs,
-                    R.styleable.CNiaoToolBar, defStyleAttr, 0);
+                    R.styleable.MyToolBar, defStyleAttr, 0);
 
-            final Drawable rightIcon = tintTypedArray.getDrawable(R.styleable.CNiaoToolBar_rightButtonIcon);
+            final Drawable rightIcon = tintTypedArray.getDrawable(R.styleable.MyToolBar_rightButtonIcon);
             if (rightIcon != null) {
                 //setNavigationIcon(navIcon);
                 setRightButtonIcon(rightIcon);
             }
 
-            boolean isShowSearchView = tintTypedArray.getBoolean(R.styleable.CNiaoToolBar_isShowSearchView, false);
+            boolean isShowSearchView = tintTypedArray.getBoolean(R.styleable.MyToolBar_isShowSearchView, false);
 
             if (isShowSearchView) {
                 showSearchView();
                 hideTitleView();
             }
 
-            CharSequence rightButtonText = tintTypedArray.getText(R.styleable.CNiaoToolBar_rightButtonText);
+            CharSequence rightButtonText = tintTypedArray.getText(R.styleable.MyToolBar_rightButtonText);
             if (rightButtonText != null) {
                 setRightButtonText(rightButtonText);
             }
@@ -99,8 +99,10 @@ public class CNiaoToolBar extends Toolbar {
     }
 
     public void setRightButtonText(CharSequence text) {
-        mRightButton.setText(text);
-        mRightButton.setVisibility(VISIBLE);
+        if(mRightButton != null){
+            mRightButton.setText(text);
+            mRightButton.setVisibility(VISIBLE);
+        }
     }
 
     public void setRightButtonText(int id) {
